@@ -29,7 +29,7 @@ ls -R1 $dir $dir2
 echo
 
 #Checking changes in versions
-tput setaf 4; diff -qs $dir $dir2 | cat --number; tput setaf 7;     
+tput setaf 4; diff -qrs $dir $dir2 | cat --number; tput setaf 7;     
 
 echo
 
@@ -37,7 +37,7 @@ echo
 tput setaf 2; echo "Changes in files:"; tput setaf 7;
 
 #Checking changes inside changed files
-for i in $(diff -rqsy $dir $dir2 | sort -k  2 | grep differ | awk '{print $2","$4}');do
+for i in $(diff -rqs $dir $dir2 | sort -k  2 | grep differ | awk '{print $2","$4}');do
 	FIRST=$(echo $i | cut -d , -f1)
 	SECOND=$(echo $i | cut -d , -f2)
 
