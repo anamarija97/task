@@ -53,6 +53,8 @@ tput setaf 2; echo "New files and their contents:"; tput setaf 7;
 #Checking content of newly added files
 for i in $(diff -rqsy $dir $dir2 | sort -k  2 | grep Only | awk '{print $3$4}' | tr ":" "/");do
 	echo $i
-	cat $i
+	if [ -f $i ];then
+		cat $i
+	fi
 	echo
 done
