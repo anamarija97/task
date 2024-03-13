@@ -1,6 +1,9 @@
 name: Configuration Check
 
-on: workflow_dispatch
+on: 
+  repository_dispatch:
+    types:
+      - configuration-check
 
 jobs:
   check:
